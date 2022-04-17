@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="60">
+    {{ turbo() }}
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+    {{ bootstrap.load_css() }}
+    <style>
+        .card-header {
+            background-color: rgb(20 20 20 / 66%);
+        }
+
+        .bg-dark {
+            background-color: #232323 !important;
+        }
+
+        .bg-dark-my {
+            background-color: #373737 !important
+        }
+
+        a {
+            color: #7d7d7d;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        a:hover {
+            color: #b4b4b4;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        hr {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 1px solid rgb(255 252 252 / 64%);
+        }
+
+        .verticaltext {
+            transform: rotate(90deg);
+            transform-origin: left top 0;
+            position: absolute;
+            margin-top: -13px;
+            white-space: nowrap;
+        }
+
+        .gpu_data {
+            height: 215px;
+            margin-top: -20px;
+            white-space: nowrap;
+            line-height: 0.5em;
+            padding-top: 5px;
+        }
+
+        .now_rap {
+            white-space: nowrap !important;
+        }
+
+        .scroll_block {
+            overflow-x: scroll;
+        }
+    </style>
+    {% endblock %}
+
+    <title>Your page title</title>
+    {% endblock %}
+</head>
+<body class="bg-dark">
+{% block content %}
+{% if not error %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            {% include "exchanges.html" %}
+        </div>
+        <div class="col-md-6">
+            {% include "balance.html" %}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    {% if not miner_errors %}
+        {% include "miner.html" %}
+    {% else %}
+        <div class="m-5 text-center">
+            <h1 class="text-white">Miner not set</h1>
+            <h6 class="text-muted">Error</h6>
+        </div>
+    {% endif %}
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            {% include "ethermine.html" %}
+        </div>
+        <div class="col-md-4">
+            {% include "ezil.html" %}
+        </div>
+        <div class="col-md-4">
+            {% include "flockpool.html" %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="m-5 text-center">
+    <h1 class="text-white">ERROR</h1>
+    <h6 class="text-muted">Reload in 60 seconds</h6>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{{ bootstrap.load_js() }}
+
+{% endblock %}
+</body>
+</html>

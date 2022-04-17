@@ -1,0 +1,64 @@
+<div id="pool">
+    <div class="card text-white bg-dark m-lg-3 m-md-2 m-sm-2 m-3">
+        <div class="card-header"><a href="{{link_flock}}" target="_blank"><h3 class="text-center">FlockPool</h3></a>
+            <div class="row">
+                <div class="col ml-lg-3 ml-md-2 ml-sm-0"><h6>Algo: <span class="badge badge-info">GhostRider</span>
+                </h6></div>
+                <div class="col ml-lg-3 ml-md-2 ml-sm-0"><h6>Status:
+                    {% if not if_flock_online %}
+                    <span class="badge badge-danger">Offline</span></h6></div>
+                {% else %}
+                <span class="badge badge-success">Online</span></h6></div>
+            {% endif %}
+            <div class="col ml-lg-3 ml-md-2 ml-sm-0"><h6>Coins: <span class="badge badge-warning">RTM</span></h6>
+            </div>
+        </div>
+    </div>
+    <div class="card-body bg-dark-my">
+        {% if if_flock_online %}
+        <h3 class="card-title font-weight-light">Hashrate</h3>
+        <div class="row">
+            <div class="col"><h6 class="text-muted">Current:</h6>
+                <p class="card-text">
+                <h1>{{hash_now_flock}}<span class="text-muted" style="font-size: 15px">H/s</span></h1></p></div>
+            <div class="col"><h6 class="text-muted">Average:</h6>
+                <p class="card-text">
+                <h1>{{hash_avg_flock}}<span class="text-muted" style="font-size: 15px">H/s</span></h1></p></div>
+
+        </div>
+        <hr>
+        <h3 class="card-title font-weight-light">Shares</h3>
+        <div class="row">
+            <div class="col"><h6 class="text-muted">Valid: {{shares_accepted_total_flock}}</h6>
+                <p class="card-text">
+                <h1>{{valid_pers_flock}}%</h1></p></div>
+            <div class="col"><h6 class="text-muted">Stale: {{shares_stale_total_flock}}</h6>
+                <p class="card-text">
+                <h1>{{stale_pers_flock}}%</h1></p></div>
+            <div class="col"><h6 class="text-muted">Rejected: {{shares_rejected_total_flock}}</h6>
+                <p class="card-text">
+                <h1>{{invalid_pers_flock}}%</h1></p></div>
+        </div>
+        <hr>
+        <h3 class="card-title font-weight-light">Balance</h3>
+        <div class="row">
+            <div class="col"><h6 class="text-muted">Pending:</h6>
+                <p class="card-text">
+                <h1>{{balance_immature_flock}}<span class="text-muted" style="font-size: 15px">RTM</span></h1></p></div>
+            <div class="col"><h6 class="text-muted">Unpaid:</h6>
+                <p class="card-text">
+                <h1>{{balance_mature_flock}}<span class="text-muted" style="font-size: 15px">RTM</span></h1></p></div>
+            <div class="col"><h6 class="text-muted">Paid:</h6>
+                <p class="card-text">
+                <h1>{{balance_paid_flock}}<span class="text-muted" style="font-size: 15px">RTM</span></h1></p></div>
+        </div>
+        <hr>
+        {% else %}
+        <div class="m-5 text-center">
+            <h1>OFFLINE</h1>
+            <h6 class="text-muted">Miner not active, or pool address was not configured.</h6>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>

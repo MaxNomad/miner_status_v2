@@ -1,0 +1,21 @@
+{
+  "version": "1.234",
+  "bind": {
+    "host": "192.168.0.163",
+    "port": 81
+  },
+  "debug": true,
+  "log": true,
+  "wallets": {
+    "wallet_ethermine": "0x0bab9CFC24Ba71700934BA7a8EcC06AdAF14A6E2",
+    "wallet_ezil": "#",
+    "wallet_flock": "#"
+  },
+  "miners": [
+            {
+                "name": "trex",
+                "api": "http://192.168.0.148:4059/summary",
+                "def_wats": 150
+            }
+        ]
+}

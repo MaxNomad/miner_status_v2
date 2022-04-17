@@ -1,0 +1,100 @@
+<div class="card text-white bg-dark m-lg-3 m-md-2 m-sm-2 m-3" id="miner">
+    <div class="card-header"><h3 class="text-center">
+        MINER</h3><h6 class="text-center text-muted">{{description}}</h6></a>
+    </div>
+
+    <div class="card-body bg-dark-my">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="m-1">
+                    <div class="card-body bg-dark">
+                        <p>Miner: {{name}} <span class="badge badge-secondary">{{version}}</span>
+                        <p>Driver: <span class="badge badge-success">{{driver}}</span>
+                        <p>Algo: {{algo}}
+                        <p>Ping: {{ping}}ms
+                        <p>Difficulty: {{difficulty}}
+                        <p>OS: <span class="badge badge-warning">{{os}}</span>
+                        <p>UpTime: {{uptime}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="m-1">
+                    <div class="card-body bg-dark">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="text-muted">Total GPU:</h6>
+                                    <p class="card-text">
+                                    <h1>{{gpu_total}}<span class="text-muted" style="font-size: 15px">GPU</span>
+                                    </h1></p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-muted">Total power:</h6>
+                                    <p class="card-text">
+                                    <h1>{{power_total}}<span class="text-muted" style="font-size: 15px">W/h</span>
+                                    </h1></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"><h6 class="text-muted">Hashrate:</h6>
+                            <p class="card-text">
+                            <h1>{{hashrate}}<span class="text-muted" style="font-size: 15px">MH/s</span></h1></p>
+                        </div>
+                        <div class="col">
+                            <h6 class="text-muted">Accepted: {{accepted_count}}</h6>
+                            <h6 class="text-muted">Rejected: {{rejected_count}}</h6>
+                            <h6 class="text-muted">Invalid: {{invalid_count}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    {% for gpu in gpus %}
+
+                    <div class="col-md-2 col-sm-2" style="max-width: 170px">
+                        <div class="m-1">
+                            <div class="card-header text-center"><h6 class="text-center text-muted">
+                                {{('{:.2f}'.format(gpu['hashrate']/1000000))}}MH/s</h6>
+
+
+                                <h5 class="text-muted m-0"><span
+                                        class="badge badge-success">{{gpu['temperature']}}°C</span>
+                                </h5>
+
+
+                            </div>
+
+                            <div class="card-body bg-dark">
+                                <div class="row">
+                                    <div class="col m-1 verticaltext_color">
+                                        <h6 class="verticaltext text-muted">
+                                            {{gpu['vendor']}} {{gpu['name']}} </h6>
+                                    </div>
+                                    <div class="col ml-2 gpu_data">
+                                        <p>PW: {{gpu['power']}}W/h
+                                        <p>Fan: {{gpu['fan_speed']}} %
+                                        <p>LHR: {{gpu['lhr_tune']}}
+                                        <p>Core: {{gpu['cclock']}}
+                                        <p>Mem: {{gpu['mclock']}}
+                                        <h6><span
+                                                class="badge badge-light">{{gpu['shares']['accepted_count']}}</span>
+                                        </h6>
+                                        <h6><span
+                                                class="badge badge-secondary">{{gpu['shares']['rejected_count']}}</span>
+                                        </h6>
+                                        <h6><span
+                                                class="badge badge-danger">{{gpu['shares']['invalid_count']}}</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

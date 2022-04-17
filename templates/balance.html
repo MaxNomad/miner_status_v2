@@ -1,0 +1,54 @@
+<div class="card text-white bg-dark m-lg-3 m-md-2 m-sm-2 m-3" id="balance">
+    <div class="card-header"><h3 class="text-center">
+        BALANCE</h3></a>
+    </div>
+
+    <div class="card-body bg-dark-my">
+        <div class="m-2">
+            <div class="row">
+                <div class="col">
+                    <h5>On pools</h5>
+                </div>
+                <div class="col">
+                    Ezil: $ {{total_ezil}}
+                </div>
+                <div class="col">
+                    Ethermine: $ {{balance_eth_in_usd_ether}}
+                </div>
+                <div class="col">
+                    FlockPool: $ {{balance_flock}}
+                </div>
+                <div class="col">
+                    Pool total: $ {{total_on_pools}}
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <div class="row">
+                <div class="col">
+                    <h5>Binance</h5>
+                </div>
+
+                {% for balance_data in balances_data %}
+                <div class="col">
+                    {{balance_data['free']}}
+                    {{balance_data['asset']}}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="m-2">
+            <div class="row">
+                <div class="col">
+                    <h5>Total: $ {{total_balance}}</h5>
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
